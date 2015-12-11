@@ -5,26 +5,24 @@
 // @description  When you have a reply directed at you, have it highlighted
 // @author       Kyle Wagner
 // @match        http://roosterteeth.com/group/sponsors
-// @grant        none
-// @require  https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js
+// @grant       GM_addStyle
 // @require  https://gist.github.com/raw/2625891/waitForKeyElements.js
 // ==/UserScript==
 /* jshint -W097 */
 'use strict';
 
-/* --- CHANGE COLOR HERE */
+/* --- CHANGE COLOR HERE --- */
 
 var backgroundColor = '#FFE7EB' // A light red color
 
 /* --- END COLOR CHANGE */
 
 // --- Here be dragons.
-
 var username = $('div#profile-menu-toggle').find('p.username>a').text().trim().toLowerCase();
 
-console.log(username);
-// Your code here...
 function highlightReply (jNode) {
+    /* --- CHANGE COLOR HERE */
+
     var str = jNode.text();
     var patt1 = /@[a-zA-Z0-9]+/g;
     var result = str.match(patt1);
